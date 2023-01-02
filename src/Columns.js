@@ -2,7 +2,7 @@ import React from 'react';
 import Task from "./Task";
 
 const Columns = (props) => {
-    const {status, tasks, changePriority, changeStatus, statuses, deleteFruits} = props
+    const {status, tasks, changePriority, changeStatus, statuses, deleteFruits, priorities, updateFruit} = props
     return (
         <div className="col">
             <h2>{status.toUpperCase()}</h2>
@@ -14,6 +14,8 @@ const Columns = (props) => {
                     changeStatus={changeStatus}
                     statuses={statuses}
                     deleteFruits={deleteFruits}
+                    priorities={priorities}
+                    updateFruit={updateFruit}
                 />))}
         </div>
     );

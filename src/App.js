@@ -15,7 +15,7 @@ function App() {
     ]
     const [statuses, setStatuses] = useState(['todo', 'in progress', 'review', 'done'])
 
-    const [priorities, setPriorities] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+    const [priorities, setPriorities] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
     const [tasks, setTasks] = useState(fruits)
 
@@ -23,6 +23,9 @@ function App() {
         setTasks([...tasks, newFruit])
     }
 
+    const updateFruit = (updatedFruit) => {
+        setTasks(tasks.map(el => el.id === updatedFruit.id ? {...updatedFruit} : el))
+    }
     const changePriority = (id, value) => {
         setTasks(tasks.map(el => el.id === id ? {...el, priority: el.priority + value} : el))
     }
@@ -52,6 +55,8 @@ function App() {
                             changeStatus={changeStatus}
                             statuses={statuses}
                             deleteFruits={deleteFruits}
+                            priorities={priorities}
+                            updateFruit={updateFruit}
                         />))}
                 </div>
             </div>

@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
 import DeleteModal from "./DeleteModal";
+import UpdateModal from "./UpdateModal";
 
 const Task = (props) => {
-    const {task, changePriority, changeStatus, statuses, deleteFruits} = props
-    const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal);
+    const {task, changePriority, changeStatus, statuses, deleteFruits, priorities, updateFruit} = props
+    const [deleteModal, setDeleteModal] = useState(false);
+    const deleteToggle = () => setDeleteModal(!deleteModal);
+
+    const [updateModal, setUpdateModal] = useState(false);
+
+    const updateToggle = () => setUpdateModal(!updateModal);
 
     return (
         <div className="card">
@@ -34,8 +39,12 @@ const Task = (props) => {
                         disabled={statuses.indexOf(task.status) === 0}
                 >←
                 </button>
-                <button type="button" className="btn btn-outline-success">Update</button>
-                <button type="button" className="btn btn-outline-danger" onClick={toggle}>Delete</button>
+                <button type="button" className="btn btn-outline-success" onClick={updateToggle}>Update</button>
+                <UpdateModal modal={updateModal} toggle={updateToggle}
+                             task={task} statuses={statuses}
+                             priorities={priorities} updateFruit={updateFruit}
+                />
+                <button type="button" className="btn btn-outline-danger" onClick={deleteToggle}>Delete</button>
 
                 <button className='btn btn-outline-primary btn-sm'
                         disabled={statuses.indexOf(task.status) === statuses.length - 1}
@@ -43,7 +52,7 @@ const Task = (props) => {
                 >→
                 </button>
             </div>
-            <DeleteModal modal={modal} toggle={toggle} task={task} deleteFruits={deleteFruits}/>
+            <DeleteModal modal={deleteModal} toggle={deleteToggle} task={task} deleteFruits={deleteFruits}/>
         </div>
     );
 };

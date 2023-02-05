@@ -5,7 +5,7 @@ const Columns = (props) => {
     const {status, tasks, changePriority, changeStatus, statuses, deleteFruits, priorities, updateFruit} = props
     return (
         <div className="col">
-            <h2>{status.toUpperCase()}</h2>
+            <h2 style={{backgroundColor:"chocolate", padding:15, marginBottom:20}} >{status.toUpperCase()}</h2>
             {tasks.filter(el => el.status === status).map(el =>
                 (<Task
                     key={el.id}

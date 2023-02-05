@@ -31,7 +31,7 @@ function CreateModal(props) {
 
     return (
         <div>
-            <Button color="primary" onClick={toggle}>
+            <Button color="primary" onClick={toggle} style={{margin: 20}}>
                 Add New Fruit
             </Button>
             <Modal isOpen={modal} toggle={toggle}>

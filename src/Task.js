@@ -12,20 +12,21 @@ const Task = (props) => {
     const updateToggle = () => setUpdateModal(!updateModal);
 
     return (
-        <div className="card">
+        <div className="card" style={{backgroundColor: "silver", marginBottom:10}}>
             <div className="card-body">
                 <h5 className="card-title">{task.name}</h5>
                 <p className="card-text">{task.description}</p>
             </div>
             <ul className="list-group list-group-flush">
-                <li className="list-group-item">Status: {task.status}</li>
-                <li className="list-group-item">Priority:
-                    {task.priority}
+                <li className="list-group-item" style={{backgroundColor: "silver"}}>Status: {task.status}</li>
+                <li className="list-group-item" style={{backgroundColor: "silver"}}>Priority:
+                    {task.priority}{' '}
                     <button className='btn btn-outline-primary btn-sm'
                             disabled={task.priority === 0}
                             onClick={() => changePriority(task.id, -1)}
                     >↓
                     </button>
+                    {' '}
                     <button className='btn btn-outline-primary btn-sm'
                             disabled={task.priority === 10}
                             onClick={() => changePriority(task.id, 1)}

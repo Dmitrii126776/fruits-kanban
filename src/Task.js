@@ -12,7 +12,7 @@ const Task = (props) => {
     const updateToggle = () => setUpdateModal(!updateModal);
 
     return (
-        <div className="card" style={{backgroundColor: "silver", marginBottom:10}}>
+        <div draggable={true} className="card" style={{backgroundColor: "silver", marginBottom:10}}>
             <div className="card-body">
                 <h5 className="card-title">{task.name}</h5>
                 <p className="card-text">{task.description}</p>

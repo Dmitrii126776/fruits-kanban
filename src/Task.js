@@ -10,9 +10,14 @@ const Task = (props) => {
     const [updateModal, setUpdateModal] = useState(false);
 
     const updateToggle = () => setUpdateModal(!updateModal);
+    const handleDragStart = (event) => {
+        event.dataTransfer.setData('taskId', task.id);
+    };
+
 
     return (
-        <div draggable={true} className="card" style={{backgroundColor: "silver", marginBottom:10}}>
+        <div draggable={true}
+             onDragStart={handleDragStart} className="card" style={{backgroundColor: "silver", marginBottom:10}}>
             <div className="card-body">
                 <h5 className="card-title">{task.name}</h5>
                 <p className="card-text">{task.description}</p>
